@@ -5,7 +5,11 @@ public class EnumerableSetTest
     [Fact]
     public void EnumerableToReadOnlySet()
     {
-        var source = TestSourceBuilder.Mapping("IEnumerable<long>", "IReadOnlySet<int>");
+        var source = TestSourceBuilder.Mapping(
+            "IEnumerable<long>",
+            "IReadOnlySet<int>",
+            TestSourceBuilderOptions.WithEnumerableAndExplicitCast
+        );
         TestHelper
             .GenerateMapper(source)
             .Should()
@@ -19,7 +23,7 @@ public class EnumerableSetTest
     [Fact]
     public void EnumerableToSet()
     {
-        var source = TestSourceBuilder.Mapping("IEnumerable<long>", "ISet<int>");
+        var source = TestSourceBuilder.Mapping("IEnumerable<long>", "ISet<int>", TestSourceBuilderOptions.WithEnumerableAndExplicitCast);
         TestHelper
             .GenerateMapper(source)
             .Should()
@@ -33,7 +37,7 @@ public class EnumerableSetTest
     [Fact]
     public void EnumerableToHashSet()
     {
-        var source = TestSourceBuilder.Mapping("IEnumerable<long>", "HashSet<int>");
+        var source = TestSourceBuilder.Mapping("IEnumerable<long>", "HashSet<int>", TestSourceBuilderOptions.WithEnumerableAndExplicitCast);
         TestHelper
             .GenerateMapper(source)
             .Should()
@@ -47,7 +51,11 @@ public class EnumerableSetTest
     [Fact]
     public void EnumerableToSortedSet()
     {
-        var source = TestSourceBuilder.Mapping("IEnumerable<long>", "SortedSet<int>");
+        var source = TestSourceBuilder.Mapping(
+            "IEnumerable<long>",
+            "SortedSet<int>",
+            TestSourceBuilderOptions.WithEnumerableAndExplicitCast
+        );
         TestHelper
             .GenerateMapper(source)
             .Should()

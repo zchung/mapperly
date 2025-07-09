@@ -190,7 +190,7 @@ public class UserMethodTest
             using System.Collections.Generic;
             using Riok.Mapperly.Abstractions;
 
-            [Mapper]
+            [Mapper(EnabledConversions = MappingConversionType.ExplicitCast)]
             public partial class BaseMapper : BaseMapper3
             {
                 public string MyMapping(int value)
@@ -233,7 +233,7 @@ public class UserMethodTest
             using System.Collections.Generic;
             using Riok.Mapperly.Abstractions;
 
-            [Mapper]
+            [Mapper(EnabledConversions = MappingConversionType.ExplicitCast | MappingConversionType.Enumerable)]
             public partial class BaseMapper : BaseMapper3
             {
                 public void MyMapping(List<int> src, List<string> dst) { }
@@ -275,7 +275,7 @@ public class UserMethodTest
             using System.Collections.Generic;
             using Riok.Mapperly.Abstractions;
 
-            [Mapper]
+            [Mapper(EnabledConversions = MappingConversionType.ExplicitCast)]
             internal sealed abstract partial class BaseMapper
             {
                 public partial B AToB(A source);
@@ -301,7 +301,7 @@ public class UserMethodTest
             using System.Collections.Generic;
             using Riok.Mapperly.Abstractions;
 
-            [Mapper]
+            [Mapper(EnabledConversions = MappingConversionType.ExplicitCast | MappingConversionType.ToStringMethod)]
             public partial class BaseMapper
             {
                 public virtual partial B AToB(A source);
@@ -310,13 +310,13 @@ public class UserMethodTest
                 public partial short IntToShort(int value);
             }
 
-            [Mapper]
+            [Mapper(EnabledConversions = MappingConversionType.ExplicitCast | MappingConversionType.ToStringMethod)]
             public partial class BaseMapper2 : BaseMapper
             {
                 public override partial B AToB(A source);
             }
 
-            [Mapper]
+            [Mapper(EnabledConversions = MappingConversionType.ExplicitCast | MappingConversionType.ToStringMethod)]
             public partial class BaseMapper3 : BaseMapper
             {
                 public sealed override partial B AToB(A source);

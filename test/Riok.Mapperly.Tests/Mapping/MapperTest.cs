@@ -48,7 +48,7 @@ public class MapperTest
             {
                 public static partial class Mappers
                 {
-                    [Mapper]
+                    [Mapper(EnabledConversions = MappingConversionType.ExplicitCast)]
                     public partial class CarMapper
                     {
                         public partial int ToInt(double value);
@@ -72,7 +72,7 @@ public class MapperTest
             {
                 public static partial class Mappers
                 {
-                    [Mapper]
+                    [Mapper(EnabledConversions = MappingConversionType.ExplicitCast)]
                     public partial class CarMapper
                     {
                         public partial int ToInt(double value);
@@ -98,7 +98,7 @@ public class MapperTest
                 [Obsolete]
                 public static partial class Mappers
                 {
-                    [Mapper]
+                    [Mapper(EnabledConversions = MappingConversionType.ExplicitCast)]
                     public partial class CarMapper
                     {
                         public partial int ToInt(double value);
@@ -124,7 +124,7 @@ public class MapperTest
             {
                 public partial class Mappers : BaseClass
                 {
-                    [Mapper]
+                    [Mapper(EnabledConversions = MappingConversionType.ExplicitCast)]
                     public partial class CarMapper
                     {
                         public partial int ToInt(double value);

@@ -1,3 +1,4 @@
+using Riok.Mapperly.Abstractions;
 using Riok.Mapperly.Diagnostics;
 
 namespace Riok.Mapperly.Tests.Mapping;
@@ -48,7 +49,7 @@ public class NullableTest
     [Fact]
     public void NullablePrimitiveToOtherNullablePrimitiveShouldWork()
     {
-        var source = TestSourceBuilder.Mapping("decimal?", "int?");
+        var source = TestSourceBuilder.Mapping("decimal?", "int?", TestSourceBuilderOptions.WithExplicitCast);
         TestHelper.GenerateMapper(source).Should().HaveSingleMethodBody("return source == null ? default(int?) : (int)source.Value;");
     }
 

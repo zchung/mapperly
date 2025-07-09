@@ -6,7 +6,7 @@ namespace Riok.Mapperly.IntegrationTests.Mapper
     {
         public static partial class TestNesting
         {
-            [Mapper]
+            [Mapper(EnabledConversions = MappingConversionType.ExplicitCast)]
             public static partial class NestedMapper
             {
                 public static partial int ToInt(decimal value);

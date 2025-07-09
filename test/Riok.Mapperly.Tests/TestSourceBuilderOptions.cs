@@ -30,7 +30,37 @@ public record TestSourceBuilderOptions(
     public static readonly TestSourceBuilderOptions Default = new();
     public static readonly TestSourceBuilderOptions AsStatic = new(Static: true);
     public static readonly TestSourceBuilderOptions WithDeepCloning = new(UseDeepCloning: true);
+    public static readonly TestSourceBuilderOptions WithDeepCloningAndExplicitCast = new TestSourceBuilderOptions(
+        UseDeepCloning: true,
+        EnabledConversions: MappingConversionType.ExplicitCast
+    );
+    public static readonly TestSourceBuilderOptions WithDeepCloningDictionaryAndExplicitCast = new TestSourceBuilderOptions(
+        UseDeepCloning: true,
+        EnabledConversions: MappingConversionType.Dictionary | MappingConversionType.ExplicitCast
+    );
+    public static readonly TestSourceBuilderOptions WithDictionaryAndExplicitCast = new TestSourceBuilderOptions(
+        EnabledConversions: MappingConversionType.Dictionary | MappingConversionType.ExplicitCast
+    );
+    public static readonly TestSourceBuilderOptions WithEnumUnderlyingTypeAndExplicitCast = new TestSourceBuilderOptions(
+        EnabledConversions: MappingConversionType.EnumUnderlyingType | MappingConversionType.ExplicitCast
+    );
+    public static readonly TestSourceBuilderOptions WithEnumerableAndExplicitCast = new TestSourceBuilderOptions(
+        EnabledConversions: MappingConversionType.Enumerable | MappingConversionType.ExplicitCast
+    );
+    public static readonly TestSourceBuilderOptions WithQueryableAndExplicitCast = new TestSourceBuilderOptions(
+        EnabledConversions: MappingConversionType.Queryable | MappingConversionType.ExplicitCast
+    );
+    public static readonly TestSourceBuilderOptions WithQueryableAndEnumerableExplicitCast = new TestSourceBuilderOptions(
+        EnabledConversions: MappingConversionType.Queryable | MappingConversionType.Enumerable | MappingConversionType.ExplicitCast
+    );
+    public static readonly TestSourceBuilderOptions WithExplicitCast = new TestSourceBuilderOptions(
+        EnabledConversions: MappingConversionType.ExplicitCast
+    );
     public static readonly TestSourceBuilderOptions WithReferenceHandling = new(UseReferenceHandling: true);
+    public static readonly TestSourceBuilderOptions WithReferenceHandlingAndQueryableAndExplicitCast = new(
+        UseReferenceHandling: true,
+        EnabledConversions: MappingConversionType.Queryable | MappingConversionType.ExplicitCast
+    );
     public static readonly TestSourceBuilderOptions WithDisabledAutoUserMappings = new(AutoUserMappings: false);
 
     public static readonly TestSourceBuilderOptions PreferParameterizedConstructors = new(PreferParameterlessConstructors: false);

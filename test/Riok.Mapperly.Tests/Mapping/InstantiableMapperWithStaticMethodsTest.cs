@@ -36,7 +36,7 @@ public class InstantiableMapperWithStaticMethodsTest
             {
                 public partial class Mappers
                 {
-                    [Mapper]
+                    [Mapper(EnabledConversions = MappingConversionType.ExplicitCast)]
                     public partial class CarMapper
                     {
                         static partial int ToInt(double value);
