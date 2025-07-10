@@ -6,7 +6,7 @@ using Riok.Mapperly.IntegrationTests.Models;
 
 namespace Riok.Mapperly.IntegrationTests.Mapper
 {
-    [Mapper(EnumMappingStrategy = EnumMappingStrategy.ByValue, EnabledConversions = MappingConversionType.All)]
+    [Mapper(EnumMappingStrategy = EnumMappingStrategy.ByValue)]
     public static partial class StaticTestMapper
     {
         [UserMapping(Default = true)]
@@ -15,8 +15,6 @@ namespace Riok.Mapperly.IntegrationTests.Mapper
         public static partial int? DirectIntNullable(int? value);
 
         public static partial long ImplicitCastInt(int value);
-
-        public static partial int ExplicitCastInt(uint value);
 
         public static partial int? CastIntNullable(int value);
 

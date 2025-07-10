@@ -15,11 +15,10 @@ namespace Riok.Mapperly.IntegrationTests.Mapper
     [Mapper(
         IncludedMembers = MemberVisibility.All,
         IncludedConstructors = MemberVisibility.All,
-        EnumMappingStrategy = EnumMappingStrategy.ByValue,
-        EnabledConversions = MappingConversionType.All
+        EnumMappingStrategy = EnumMappingStrategy.ByValue
     )]
 #else
-    [Mapper(EnumMappingStrategy = EnumMappingStrategy.ByValue, EnabledConversions = MappingConversionType.All)]
+    [Mapper(EnumMappingStrategy = EnumMappingStrategy.ByValue)]
 #endif
     public partial class TestMapper
     {
@@ -41,8 +40,6 @@ namespace Riok.Mapperly.IntegrationTests.Mapper
         public partial int DirectInt(int value);
 
         public partial long ImplicitCastInt(int value);
-
-        public partial int ExplicitCastInt(uint value);
 
         public partial int? CastIntNullable(int value);
 

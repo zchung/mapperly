@@ -11,7 +11,7 @@ public class CastTest
     [InlineData("long", "int")]
     public void NumericExplicitCast(string from, string to)
     {
-        var source = TestSourceBuilder.Mapping(from, to, TestSourceBuilderOptions.WithDeepCloningAndExplicitCast);
+        var source = TestSourceBuilder.Mapping(from, to, TestSourceBuilderOptions.WithDeepCloningAndConversionTypeAll);
         TestHelper.GenerateMapper(source).Should().HaveSingleMethodBody($"return ({to})source;");
     }
 
@@ -38,7 +38,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "A",
             "string",
-            TestSourceBuilderOptions.WithExplicitCast,
+            TestSourceBuilderOptions.WithAll,
             "class A { public static explicit operator string(A a) => \"A\"; }"
         );
         TestHelper.GenerateMapper(source).Should().HaveSingleMethodBody("return (string)source;");
@@ -50,7 +50,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "A",
             "string",
-            TestSourceBuilderOptions.WithDeepCloningAndExplicitCast,
+            TestSourceBuilderOptions.WithDeepCloningAndConversionTypeAll,
             "class A { public static explicit operator string(A a) => \"A\"; }"
         );
         TestHelper.GenerateMapper(source).Should().HaveSingleMethodBody("return (string)source;");
@@ -62,7 +62,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "A",
             "string",
-            TestSourceBuilderOptions.WithExplicitCast,
+            TestSourceBuilderOptions.WithAll,
             "struct A { public static explicit operator string(A a) => \"A\"; }"
         );
         TestHelper.GenerateMapper(source).Should().HaveSingleMethodBody("return (string)source;");
@@ -74,7 +74,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "A",
             "string",
-            TestSourceBuilderOptions.WithDeepCloningAndExplicitCast,
+            TestSourceBuilderOptions.WithDeepCloningAndConversionTypeAll,
             "struct A { public static explicit operator string(A a) => \"A\"; }"
         );
         TestHelper.GenerateMapper(source).Should().HaveSingleMethodBody("return (string)source;");
@@ -86,7 +86,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "string",
             "A",
-            TestSourceBuilderOptions.WithExplicitCast,
+            TestSourceBuilderOptions.WithAll,
             "class A { public static explicit operator A(string s) => new(); }"
         );
         TestHelper.GenerateMapper(source).Should().HaveSingleMethodBody("return (global::A)source;");
@@ -98,7 +98,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "string",
             "A",
-            TestSourceBuilderOptions.WithDeepCloningAndExplicitCast,
+            TestSourceBuilderOptions.WithDeepCloningAndConversionTypeAll,
             "class A { public static explicit operator A(string s) => new(); }"
         );
         TestHelper.GenerateMapper(source).Should().HaveSingleMethodBody("return (global::A)source;");
@@ -110,7 +110,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "string",
             "A",
-            TestSourceBuilderOptions.WithExplicitCast,
+            TestSourceBuilderOptions.WithAll,
             "struct A { public static explicit operator A(string s) => new(); }"
         );
         TestHelper.GenerateMapper(source).Should().HaveSingleMethodBody("return (global::A)source;");
@@ -122,7 +122,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "string",
             "A",
-            TestSourceBuilderOptions.WithDeepCloningAndExplicitCast,
+            TestSourceBuilderOptions.WithDeepCloningAndConversionTypeAll,
             "struct A { public static explicit operator A(string s) => new(); }"
         );
         TestHelper.GenerateMapper(source).Should().HaveSingleMethodBody("return (global::A)source;");
@@ -134,7 +134,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "A",
             "B",
-            TestSourceBuilderOptions.WithExplicitCast,
+            TestSourceBuilderOptions.WithAll,
             "class A { public static explicit operator B(A a) => new(); }",
             "class B {}"
         );
@@ -147,7 +147,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "A",
             "B",
-            TestSourceBuilderOptions.WithDeepCloningAndExplicitCast,
+            TestSourceBuilderOptions.WithDeepCloningAndConversionTypeAll,
             "class A { public static explicit operator B(A a) => new(); }",
             "class B {}"
         );
@@ -168,7 +168,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "A",
             "B",
-            TestSourceBuilderOptions.WithExplicitCast,
+            TestSourceBuilderOptions.WithAll,
             "struct A { public static explicit operator B(A a) => new(); }",
             "struct B {}"
         );
@@ -181,7 +181,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "A",
             "B",
-            TestSourceBuilderOptions.WithDeepCloningAndExplicitCast,
+            TestSourceBuilderOptions.WithDeepCloningAndConversionTypeAll,
             """
             struct A
             {
@@ -209,7 +209,7 @@ public class CastTest
         var source = TestSourceBuilder.Mapping(
             "A",
             "B",
-            TestSourceBuilderOptions.WithDeepCloningAndExplicitCast,
+            TestSourceBuilderOptions.WithDeepCloningAndConversionTypeAll,
             "struct A { public static explicit operator B(A a) => new(); }",
             "struct B {}"
         );

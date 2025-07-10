@@ -4,10 +4,10 @@ namespace Riok.Mapperly.IntegrationTests.Mapper
 {
     public partial interface INestedTestMapper
     {
-        [Mapper(EnabledConversions = MappingConversionType.All)]
+        [Mapper]
         public static partial class NestedMapper
         {
-            public static partial int ToInt(decimal value);
+            public static partial decimal ToDecimal(int value);
         }
     }
 }

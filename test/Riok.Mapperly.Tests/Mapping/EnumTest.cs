@@ -49,7 +49,7 @@ public class EnumTest
         var source = TestSourceBuilder.Mapping(
             "C",
             "E",
-            TestSourceBuilderOptions.WithEnumUnderlyingTypeAndExplicitCast,
+            TestSourceBuilderOptions.WithAll,
             "class C { public static explicit operator byte(C c) => 0; } }",
             "enum E : byte {A, B, C}"
         );

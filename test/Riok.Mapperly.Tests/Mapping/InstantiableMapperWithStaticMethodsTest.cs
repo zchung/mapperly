@@ -36,10 +36,10 @@ public class InstantiableMapperWithStaticMethodsTest
             {
                 public partial class Mappers
                 {
-                    [Mapper(EnabledConversions = MappingConversionType.ExplicitCast)]
+                    [Mapper]
                     public partial class CarMapper
                     {
-                        static partial int ToInt(double value);
+                        static partial double ToDouble(int value);
                     }
                 }
             }
