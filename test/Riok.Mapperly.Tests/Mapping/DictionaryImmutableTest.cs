@@ -61,7 +61,7 @@ public class DictionaryImmutableTest
         var source = TestSourceBuilder.Mapping(
             "Dictionary<long, long>",
             "System.Collections.Immutable.ImmutableDictionary<int, int>",
-            TestSourceBuilderOptions.WithAll
+            TestSourceBuilderOptions.AllConversions
         );
         TestHelper
             .GenerateMapper(source)
@@ -79,7 +79,7 @@ public class DictionaryImmutableTest
         var source = TestSourceBuilder.Mapping(
             "Dictionary<string, long>",
             "System.Collections.Immutable.ImmutableDictionary<string, int>",
-            TestSourceBuilderOptions.WithAll
+            TestSourceBuilderOptions.AllConversions
         );
         TestHelper
             .GenerateMapper(source)
